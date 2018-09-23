@@ -166,6 +166,7 @@
 	const $animationContainer = document.getElementById('animation')
 	const { data: { movies: animationList } } = await getData(`${BASE_API}list_movies.json?genre=animation`)
 	renderMovieList(animationList, $animationContainer, 'animation')
+	console.log(animationList)
 
 
 	

@@ -48,8 +48,8 @@ h1 {
 }
 .modal {
 
-  width: 500px;
-  height: 350px;
+  width: 600px;
+  height: 450px;
   background: white;
   padding-right: 10px;
   border-radius: .5em;
@@ -71,7 +71,7 @@ h1 {
 
 .modal-content {
   display: grid;
-  grid-template: 100px minmax(30px, 190px) 40px/ 45% 1fr;
+  grid-template: 100px minmax(30px, 1fr) 40px/ 45% 1fr;
   grid-gap: 10px;
   grid-template-areas: "image title"
                        "image description"
@@ -85,7 +85,7 @@ h1 {
   height: 256px;*/
   border-radius: .5em 0em 0em .5em;
   width: 100%;
-  height: 350px;
+  height: 450px;
   object-fit: cover;
   margin-right: 15px;
 }
