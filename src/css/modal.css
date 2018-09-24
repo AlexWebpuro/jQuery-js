@@ -48,8 +48,9 @@ h1 {
 }
 .modal {
 
-  width: 600px;
-  height: 450px;
+  max-width: 600px;
+
+  max-height: 450px;
   background: white;
   padding-right: 10px;
   border-radius: .5em;
@@ -177,3 +178,54 @@ h1 {
     opacity: 0;
   }
 } 
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 19px;
+    line-height: 1.2em;
+  }
+ .modal {
+  width: 260px;
+  max-height: 400px;
+  padding: 0;
+  }
+  .modal-content {
+  display: grid;
+  grid-template: 140px 40px 150px 30px / 260px;
+  grid-gap: 10px;
+  grid-template-areas: "image"
+                       "title"
+                       "description"
+                       "boton"
+  /*display: flex;*/
+  }
+
+  .modal-content img {
+    grid-area: image;
+    width: 100%;
+    height: 140px;
+    border-radius: .5em .5em 0em 0em;
+    object-fit: cover;
+  }
+  .modal-content p {
+    padding: 10px;
+    margin: 0;
+  }
+  #description {
+    grid-area: description;
+    /*padding-right: 10px;*/
+    /*display: grid;*/
+    height: 100%;
+    overflow: scroll;
+  }
+  .modal-content h1 {
+    grid-area: title;
+    align-self: start;
+    margin: 0;
+    padding: 10px;
+  }
+  .modal-content button {
+    grid-area: boton;
+    margin: 0 10px;
+  }
+}

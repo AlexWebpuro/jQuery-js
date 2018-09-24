@@ -184,7 +184,9 @@
 	// window.localStorage.setItem('animationList', JSON.stringify(animationList))
 	renderMovieList(animationList, $animationContainer, 'animation')
 
-
+	// setTimeout(() => {
+	// 	window.localStorage.clear()
+	// }, 5000)
 	
 
 

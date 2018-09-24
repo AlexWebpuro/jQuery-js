@@ -255,12 +255,42 @@ body {
   }
 }
 
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
+@media screen and (min-width: 1025px) {
 
-  100% {
-    opacity: 0;
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 480px) {
+  div .sidebar {
+    display: none;
   }
+  .home {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0;
+    grid-template-areas: "primary"
+                         "featuring";
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+  div .sidebar {
+    display: none;
+  }
+  .home {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0;
+    grid-template-areas: "primary"
+                         "featuring";
+    }
 }
