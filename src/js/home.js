@@ -155,18 +155,34 @@
 		// $modal.removeEventListener('animationend', () => {})
 	}
 
+	async function cacheExist (category) {
+		const listName = `${category}List`
+		const cache = window.localStorage.getItem(listName)
+		if(cache) {
+			return JSON.parse(cache)
+		}
+		const { data: { movies: data } } = await  getData(`${BASE_API}list_movies.json?genre=${category}`)
+		localStorage.setItem(listName, JSON.stringify(data))
+		return data
+	}
+
 	const $actionContainer = document.querySelector('#action')
-	const { data: { movies: actionList} } = await  getData(`${BASE_API}list_movies.json?genre=action`)
+	// const { data: { movies: actionList} } = await  getData(`${BASE_API}list_movies.json?genre=action`)
+	const actionList = await cacheExist('action')
+	// window.localStorage.setItem('actionList', JSON.stringify(actionList))
 	renderMovieList(actionList, $actionContainer, 'action')
 
 	const $dramaContainer = document.querySelector('#drama')
-	const { data: { movies: dramaList } } = await getData(`${BASE_API}list_movies.json?genre=drama`)
+	const dramaList = await cacheExist('drama')
+	// const { data: { movies: dramaList } } = await getData(`${BASE_API}list_movies.json?genre=drama`)
+	// window.localStorage.setItem('dramaList', JSON.stringify(dramaList))
 	renderMovieList(dramaList, $dramaContainer, 'drama')
 
 	const $animationContainer = document.getElementById('animation')
-	const { data: { movies: animationList } } = await getData(`${BASE_API}list_movies.json?genre=animation`)
+	const animationList = await cacheExist('animation')
+	// const { data: { movies: animationList } } = await getData(`${BASE_API}list_movies.json?genre=animation`)
+	// window.localStorage.setItem('animationList', JSON.stringify(animationList))
 	renderMovieList(animationList, $animationContainer, 'animation')
-	console.log(animationList)
 
 
 	
